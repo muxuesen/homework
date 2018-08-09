@@ -1,6 +1,7 @@
 from django.conf.urls import url
 from api.views import course
 from api.views import degreecourse
+from api.views import shoppingcar
 
 urlpatterns = [
     url(r'^courses/$', course.CoursesView.as_view()),
@@ -30,5 +31,9 @@ urlpatterns = [
 
     # h.获取id = 1的专题课，并打印该课程相关的所有章节
     url(r'^coursechapter/$', course.CourseChapterView.as_view()),
+
+
+    url(r'^shoppingcar/$', shoppingcar.ShoppingCarView.as_view({"post":"create","get":"list","delete":"destroy", "put": "update"})),
+    # url(r'^shoppingcar/(?P<pk>\d+)$', shoppingcar.ShoppingCarView.as_view({"post":"create","get":"list"})),
 
 ]

@@ -71,7 +71,7 @@ class CoursecourseView(APIView):
         try:
             #从数据库取数据
             course_list = models.DegreeCourse.objects.get(id=1)
-            ser = CoursecourseSerializer(course_list, many=True)
+            ser = CoursecourseSerializer(course_list)
             ret.data = ser.data
         except Exception as e:
             ret.code = 500
@@ -84,8 +84,8 @@ class CourseLevelView(APIView):
         ret = BaseResponse()
         try:
             # 从数据库取数据
-            course_list = models.DegreeCourse.objects.get(id=1)
-            ser = CourseLevelSerializer(course_list, many=True)
+            course_list = models.Course.objects.get(id=1)
+            ser = CourseLevelSerializer(course_list)
             ret.data = ser.data
         except Exception as e:
             ret.code = 500
@@ -98,8 +98,8 @@ class CourseQuquestionView(APIView):
     def get(self, request, *args, **kwargs):
         ret = BaseResponse()
         try:
-            course_list = models.Course.objects.get(id=1)
-            ser = CourseQuquestionSerializer(course_list, many=True)
+            course_list = models.Course.objects.filter(id=1).first()
+            ser = CourseQuquestionSerializer(course_list)
             ret.data = ser.data
         except Exception as e:
             ret.code = 500
@@ -113,7 +113,7 @@ class CourseOutlineView(APIView):
         ret = BaseResponse()
         try:
             course_list = models.Course.objects.get(id=1)
-            ser = CourseOutlineSerializer(course_list, many=True)
+            ser = CourseOutlineSerializer(course_list)
             ret.data = ser.data
         except Exception as e:
             ret.code = 500
@@ -128,7 +128,7 @@ class CourseChapterView(APIView):
         try:
             # 从数据库取数据
             chapter_list = models.Course.objects.get(id=1)
-            ser = CourseChapterSerializer(chapter_list, many=True)
+            ser = CourseChapterSerializer(chapter_list)
             ret.data = ser.data
         except Exception as e:
             ret.code = 500

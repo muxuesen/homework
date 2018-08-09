@@ -243,7 +243,6 @@ class Homework(models.Model):
     def __str__(self):
         return "%s - %s" % (self.chapter, self.title)
 
-
 # class CourseReview(models.Model):
 #     """课程评价"""
 #     enrolled_course = models.OneToOneField("EnrolledCourse")
@@ -288,7 +287,6 @@ class Homework(models.Model):
 #
 #     class Meta:
 #         verbose_name_plural = "14. 学位课评价（购买课程后才能评价）"
-
 
 class PricePolicy(models.Model):
     """价格与有课程效期表"""

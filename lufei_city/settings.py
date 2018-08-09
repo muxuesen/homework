@@ -129,5 +129,7 @@ REST_FRAMEWORK = {
     'VERSION_PARAM': 'version',
     'DEFAULT_VERSION': 'v1',
     'ALLOWED_VERSIONS': ['v1', 'v2'],
-    'PAGE_SIZE': 1
+    'PAGE_SIZE': 1,
+    'DEFAULT_PARSER_CLASSES':['rest_framework.parsers.JSONParser', ]
 }
+LUFFY_SHOPPING_CAR = "shopping_car_%s_%s"
